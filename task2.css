@@ -4,154 +4,158 @@
   padding: 0;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-  background: #030303;
-  color: white;
+  font-family: 'Orbitron', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+.container {
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .background {
-  background-image: linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.95) 70%, #020202), url("https://i.imgur.com/9KVO1Ok.jpg");
-  width: 100vw;
-  height: 100vh;
-  background-position: top;
-  z-index: 1;
   position: relative;
-  box-shadow: 0 50px 50px black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, #1B2735 0%, #090A0F 100%);
 }
 h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); 
-  z-index: 100;
-  font-family: 'Gruppo', cursive;
+  font-size: 4rem;
   text-transform: uppercase;
-  letter-spacing: 0.5rem;
-  font-size: 3rem;
-  color: white;
-  text-shadow: 2px 2px 5px;
+  letter-spacing: 0.5em;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+               0 0 20px rgba(255, 255, 255, 0.5),
+               0 0 30px rgba(255, 255, 255, 0.3);
+  transform: translateZ(0);
+  z-index: 1;
 }
 .layer {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-.layer-1 {
-  background-image: linear-gradient(to bottom,transparent 50%,rgba(0, 0, 0,0.85) 70%, #020202), url("https://i.imgur.com/bwEm8WB.png");
-  z-index: 70;
+.stars {
+  background-image: url('https://i.imgur.com/XZXNB6r.png');
+  transform: translateZ(-3px) scale(4);
+  opacity: 0.8;
 }
-.layer-2 {
-  background-image: linear-gradient(to bottom,transparent 30%,rgba(0,0,0,0.9) 80%, #020202), url("https://i.imgur.com/XxTPjmC.png");
-  z-index: 80;
+.nebula {
+  background-image: url('https://i.imgur.com/F4xnzjU.png');
+  transform: translateZ(-2px) scale(3);
+  opacity: 0.6;
 }
-.layer-3 {
-  background-image: 
-    linear-gradient(to bottom,transparent 60%,rgba(0, 0,0,0.85), #020202), url("https://i.imgur.com/F4xnzjU.png");
-  z-index: 90;
+.planets {
+  background-image: url('https://i.imgur.com/bwEm8WB.png');
+  transform: translateZ(-1px) scale(2);
+  opacity: 0.7;
+}
+.asteroids {
+  background-image: url('https://i.imgur.com/XxTPjmC.png');
+  transform: translateZ(-0.5px) scale(1.5);
+  opacity: 0.5;
 }
 .content {
-  font-size: 1.2rem;
-  line-height: 1.7;
+  background: linear-gradient(to bottom, rgba(9, 10, 15, 0.8) 0%, #090A0F 100%);
   position: relative;
-  background-image: url("https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
-  background-size: cover;
-  background-attachment: fixed;
+  padding: 4rem 0;
+  transform: translateZ(0);
 }
 .text {
-  padding: 4rem 10rem 20rem 40rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
 }
-.rock {
-  background-image: url("https://i.imgur.com/F4xnzjU.png");
-  width: 100vw;
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #4CA1AF;
+  text-shadow: 0 0 10px rgba(76, 161, 175, 0.5);
+}
+p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #B8D8E0;
+}
+.floating-elements {
+  position: relative;
   height: 100vh;
+  overflow: hidden;
+}
+.element {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  background-position: left center;
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+  opacity: 0.7;
+  transition: transform 0.3s ease-out;
 }
-.rocks {
-  position: absolute;
-  z-index: 1000;
+.planet-1 {
+  width: 200px;
+  right: 10%;
+  top: 20%;
+  animation: float 8s ease-in-out infinite;
 }
-.rock-1 {
- width: 100px;
- height: 100px;
- left: 10%;
- top: 50%;
-}
-.rock-2 {
-  width: 120px;
-  height: 120px;
-  left: 20%;
-  top: 30%;
-}
-.rock-3 {
-  width: 80px;
-  height: 80px;
-  left: 10%;
-  bottom: 20%;
-}
-.rock-4 {
-  width: 130px;
-  height: 130px;
-  bottom: 0;
-  left: 31%;
-}
-.rock-5 {
-  width: 110px;
-  height: 110px;
-  bottom: 0;
-  left: 5%;
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-}
-.rock-6 {
-  width: 70px;
-  height: 70px;
-  bottom: 30%;
-  left: 20%;
-}
-.rock-7 {
-  width: 120px;
-  height: 120px;
-  bottom: 35%;
+.planet-2 {
+  width: 150px;
   left: 15%;
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+  top: 40%;
+  animation: float 6s ease-in-out infinite reverse;
 }
-.rock-8 {
+.asteroid-1 {
   width: 50px;
-  height: 50px;
-  bottom: 25%;
   left: 25%;
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+  top: 30%;
+  animation: spin 10s linear infinite;
 }
-.rock-9 {
-  width: 70px;
-  height: 70px;
-  bottom: 35%;
-  left: 30%;
+.asteroid-2 {
+  width: 40px;
+  right: 30%;
+  top: 60%;
+  animation: spin 8s linear infinite reverse;
 }
-
-@media only screen and (max-width: 1200px) {
+.comet {
+  width: 100px;
+  left: 40%;
+  top: 15%;
+  animation: shoot 12s linear infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes shoot {
+  0% { transform: translate(-100%, -100%) rotate(45deg); }
+  100% { transform: translate(200%, 200%) rotate(45deg); }
+}
+@media only screen and (max-width: 768px) {
   h1 {
     font-size: 2rem;
-    letter-spacing: 0.1rem;
-    text-align: center;
+    letter-spacing: 0.3em;
   }
-  .rocks, .rock {
-    display: none;
+  h2 {
+    font-size: 1.8rem;
   }
-  .text {
-    padding: 0 3rem 5rem 3rem;
+  p {
+    font-size: 1rem;
+  }
+  .element {
+    transform: scale(0.7);
   }
 }
 
